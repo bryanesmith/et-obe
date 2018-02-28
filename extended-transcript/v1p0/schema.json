@@ -1,0 +1,275 @@
+{
+	"$schema": "http://json-schema.org/draft-04/schema#",
+	"id": "https://www.imsglobal.org/eT/v1p0/schema.json",
+
+	"type": "object",
+	"properties": {
+		"type": {
+			"anyOf": [
+				{ "type": "string", "pattern": "^ExtendedTranscript$" },
+				{ "type": "array", "items": [{ "type": "string" }] }
+			]
+		},
+		"id": { "$ref": "#/definitions/id" },
+		"createdAt": { "$ref": "#/definitions/date" },
+		"issuer": { "$ref": "#/definitions/issuer" },
+		"overviewUrl": { "format": "uri" },
+		"person": { "$ref": "#/definitions/person" },
+		"records": { "type": "array", "items": [{ "$ref": "#/definitions/record" }] },
+		"transcriptEntities": { "$ref": "#/definitions/transcriptEntitySet" }
+	},
+	"required": ["type", "id", "createdAt", "transcriptEntities"],
+	"additionalProperties": true,
+
+	"definitions": {
+
+		 "id": { "type":"string" },
+
+		 "date": { "type":"string", "pattern": "^(-?(?:[1-9][0-9]*)?[0-9]{4})-(1[0-2]|0[1-9])-(3[01]|0[1-9]|[12][0-9])T(2[0-3]|[01][0-9]):([0-5][0-9]):([0-5][0-9])(.[0-9]+)?(Z)?$" },
+
+		 "entityType": { "type": "string", "enum": ["Basic", "Competency", "Course", "Degree", "Certificate", "Assessment", "CoCurricular"] },
+
+		 "issuer": {
+			 "type": "object",
+			 "properties": {
+				 "type": { "type": "string", "pattern": "^Issuer$" },
+				 "id": { "$ref": "#/definitions/id" },
+				 "name": { "type": "string" },
+				 "url": { "format": "uri" },
+				 "address": { "type": "string" },
+				 "phone": { "type": "string" },
+				 "logo": { "format": "uri" }
+			 },
+			 "required": ["type", "id", "url"],
+			 "additionalProperties": true
+		 },
+
+		 "person": {
+			 "type": "object",
+			 "properties": {
+				 "type": { "type": "string", "pattern": "^Person$" },
+				 "id": { "$ref": "#/definitions/id" },
+				 "fullName": { "type": "string" },
+				 "givenName": { "type": "string" },
+				 "familyName": { "type": "string" },
+				 "email": { "format": "email"},
+				 "phone": { "type": "string" },
+				 "mobile": { "type": "string" },
+				 "studentId": { "type": "string" },
+				 "birthDate": { "type": "string" },
+				 "sourcedId": { "type": "string" },
+				 "url": { "format": "uri" }
+			 },
+			 "required": ["type", "id", "fullName", "givenName", "familyName"],
+			 "additionalProperties": true
+		 },
+
+		 "record": {
+			 "type": "object",
+			 "properties": {
+				 "type": { "type": "string", "pattern": "^Record$" },
+				 "id": { "$ref": "#/definitions/id" },
+				 "recordOf": { "$ref": "#/definitions/transcriptEntityLink" },
+				 "date": { "$ref": "#/definitions/date" },
+				 "term": { "type": "string" },
+				 "results": { "type": "string" },
+				 "credits": { "type": "string" },
+				 "points": { "type": "string" },
+				 "assertions": { "type": "array", "items": [{ "type": "string" }] },
+				 "status": { "$ref": "#/definitions/recordStatus" },
+				 "evidence": { "type": "array", "items": [{ "$ref": "#/definitions/evidence" }] }
+			 },
+			 "required": ["type", "id", "recordOf"],
+			 "additionalProperties": true
+		 },
+
+		 "evidence": {
+			 "type": "object",
+			 "properties": {
+				 "type": { "type": "string", "pattern": "^Evidence" },
+				 "id": { "$ref": "#/definitions/id" },
+				 "name": { "type": "string" },
+				 "url": { "format": "uri" }
+			 },
+			 "required": ["type", "id", "url"],
+			 "additionalProperties": true
+		 },
+
+		 "recordStatus": {
+			 "type": "object",
+			 "properties": {
+				 "type": { "type": "string", "pattern": "^RecordStatus$" },
+				 "id": { "$ref": "#/definitions/id" },
+				 "completed": { "type": "boolean" },
+				 "notes": { "type": "string" }
+			 },
+			 "required": ["type", "id"],
+			 "additionalProperties": true
+		 },
+
+		 "transcriptEntityLink": {
+			 "type": "object",
+			 "properties": {
+				 "type": { "type": "string", "pattern": "^TranscriptEntityLink$" },
+				 "id": { "$ref": "#/definitions/id" },
+				 "entityType": { "$ref": "#/definitions/entityType" },
+				 "entityId": { "type": "string" }
+			 },
+			 "required": ["type", "id", "entityType", "entityId"],
+			 "additionalProperties": true
+		 },
+
+		 "transcriptEntitySet": {
+			 "type": "object",
+			 "properties": {
+					"type": { "type": "string", "pattern": "^TranscriptEntitySet$" },
+					"id": { "$ref": "#/definitions/id" },
+					"assessments": { "type": "array", "items": [{ "$ref": "#/definitions/assessment" }] },
+					"certificates": { "type": "array", "items": [{ "$ref": "#/definitions/certificate" }] },
+					"coCurriculars": { "type": "array", "items": [{ "$ref": "#/definitions/coCurricular" }] },
+					"competencies": { "type": "array", "items": [{ "$ref": "#/definitions/competency" }] },
+					"courses": { "type": "array", "items": [{ "$ref": "#/definitions/course" }] },
+					"degrees": { "type": "array", "items": [{ "$ref": "#/definitions/degree" }] },
+					"basicEntities": { "type": "array", "items": [{ "$ref": "#/definitions/basic" }] }
+			 },
+			 "required": ["type", "id"],
+			 "additionalProperties": true
+		 },
+
+		 "assessment": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+							"type": { "type": "string", "pattern": "^Assessment$" },
+							"assessmentMethod": { "type": "string" },
+							"scoringMethod": { "type": "string" },
+							"hasGroupParticipation": { "type": "boolean" },
+							"assessor": { "type": "string" },
+							"assessmentEvaluation": { "type": "string" },
+							"assessmentOutput": { "type": "string" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "certificate": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+					 		"type": { "type": "string", "pattern": "^Certificate$" },
+							"level": { "type": "string" },
+							"areaOfStudy": { "type": "string" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "coCurricular": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+					 		"type": { "type": "string", "pattern": "^CoCurricular$" },
+							"category": { "type": "string" },
+							"scoringMethod": { "type": "string" },
+							"role": { "type": "string" },
+							"startDate": { "$ref": "#/definitions/date" },
+							"endDate": { "$ref": "#/definitions/date" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "competency": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+					 		"type": { "type": "string", "pattern": "^Competency$" },
+							"humanCodingScheme": { "type": "string" },
+							"CFDocumentURI": { "format": "uri" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "course": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+					 		"type": { "type": "string", "pattern": "^Course$" },
+							"courseCode": { "type": "string" },
+							"startDate": { "$ref": "#/definitions/date" },
+							"endDate": { "$ref": "#/definitions/date" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "degree": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+					 		"type": { "type": "string", "pattern": "^Degree$" },
+							"programName": { "type": "string" },
+							"programSpecialization": { "type": "string" },
+							"level": { "type": "string" },
+							"areaOfStudy": { "type": "string" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "basic": {
+			 "allOf": [
+				 { "$ref": "#/definitions/transcriptEntity" },
+				 {
+					 "properties": {
+					 		"type": { "type": "string", "pattern": "^Basic$" }
+				 		},
+						"required": ["type"]
+					}
+				]
+		 },
+
+		 "transcriptEntity": {
+			 "type": "object",
+			 "properties": {
+					"id": { "$ref": "#/definitions/id" },
+					"name": { "type": "string" },
+					"description": { "type": "string" },
+					"defaultCredits": { "type": "string" },
+					"defaultPoints": { "type": "string" },
+					"sourcedId": { "type": "string" },
+					"associations": { "type": "array", "items": [{ "$ref": "#/definitions/association" }] },
+					"alternativeLabel": { "type": "string" }
+			 },
+			 "required": ["id"],
+			 "additionalProperties": true
+		 },
+
+		 "association": {
+			 "type": "object",
+			 "properties": {
+					"type": { "type": "string", "pattern": "^Association$" },
+					"id": { "$ref": "#/definitions/id" },
+					"associationType": { "type": "string", "enum": ["exactMatchOf", "precedes", "isChildOf", "isParentOf", "hasSkillLevel", "replacedBy", "isPartOf", "exemplar", "isRelatedTo", "isPeerOf"] },
+					"entityType": { "$ref": "#/definitions/entityType" },
+					"entityId": { "type": "string" }
+			 },
+			 "required": ["type", "id", "associationType", "entityType", "entityId"],
+			 "additionalProperties": true
+		 }
+	}
+
+}

@@ -1,0 +1,141 @@
+{
+   "id":"@id",
+   "type":"@type",
+   "badgeExtensions":"https://w3id.org/openbadges/extensions#",
+   "ctdl":"http://www.credreg.net/ctdl/terms#",
+   "et":"http://purl.imsglobal.org/extended-transcript/",
+   "ltiv":"http://purl.imsglobal.org/vocab/lti/v2/variable#",
+   "obi":"https://w3id.org/openbadges#",
+   "schema":"http://schema.org/",
+   "xsd":"http://www.w3.org/2001/XMLSchema#",
+   "ExtendedTranscript":"et:ExtendedTranscript",
+   "Person":"et:Person",
+   "Issuer":"et:Issuer",
+   "Record":"et:Record",
+   "RecordStatus":"et:RecordStatus",
+   "Assessment":"et:Assessment",
+   "Certificate":"et:Certificate",
+   "CoCurricular":"et:CoCurricular",
+   "Competency":"et:Competency",
+   "Course":"et:Course",
+   "Degree":"et:Degree",
+   "Basic":"et:Basic",
+   "Evidence":"et:Evidence",
+   "address":"schema:address",
+   "areaOfStudy":"et:areaOfStudy",
+   "assessmentEvaluation":"badgeExtensions:assessmentEvaluation",
+   "assessmentMethod":"ctdl:assessmentMethodType",
+   "assessmentOutput":"ctdl:assessmentOutput",
+   "assessor":"et:assessor",
+   "assertions":{
+      "@id":"et:assertions",
+      "@type":"@id",
+      "@container":"@set"
+   },
+   "birthDate":{
+      "@id":"schema:birthDate",
+      "@type":"xsd:dateTime"
+   },
+   "category":"et:category",
+   "CFDocumentURI":{
+      "@id":"et:CFDocumentURI",
+      "@type":"@id"
+   },
+   "alternativeLabel":"et:alternativeLabel",
+   "completed":{
+      "@id":"et:completed",
+      "@type":"xsd:boolean"
+   },
+   "courseCode":"ltiv:CourseOffering.courseNumber",
+   "createdAt":{
+      "@id":"schema:dateCreated",
+      "@type":"xsd:dateTime"
+   },
+   "defaultCredits":"ltiv:CourseSection.credits",
+   "credits":"et:credits",
+   "defaultPoints":"et:defaultPoints",
+   "points":"et:points",
+   "description":"schema:description",
+   "date":{
+      "@id":"schema:dateCreated",
+      "@type":"xsd:dateTime"
+   },
+   "familyName":"schema:familyName",
+   "email":"schema:email",
+   "endDate":{
+      "@id":"schema:endDate",
+      "@type":"xsd:dateTime"
+   },
+   "evidence":{
+      "@id":"et:evidence",
+      "@container":"@list"
+   },
+   "fullName":"schema:name",
+   "givenName":"schema:givenName",
+   "issuer":{
+      "@id":"et:issuer"
+   },
+   "issuingPersonFullName":"et:issuingPersonFullName",
+   "issuingPersonTitle":"schema:jobTitle",
+   "level":"et:level",
+   "logo":{
+      "@id":"schema:image",
+      "@type":"@id"
+   },
+   "mobile":"et:mobile",
+   "name":"schema:name",
+   "notes":"et:notes",
+   "humanCodingScheme":"et:humanCodingScheme",
+   "overviewUrl":{
+      "@id":"et:overviewUrl",
+      "@type":"@id"
+   },
+   "person":"et:person",
+   "phone":"schema:telephone",
+   "programName":"et:programName",
+   "programSpecialization":"ctdl:degreeConcentration",
+   "recordOf":{
+      "@id":"et:recordOf"
+   },
+   "records":{
+      "@id":"et:records",
+      "@container":"@list"
+   },
+   "result":"et:result",
+   "role":"schema:roleName",
+   "scoringMethod":"ctdl:scoringMethodType",
+   "sourcedId":"et:sourcedId",
+   "startDate":{
+      "@id":"schema:startDate",
+      "@type":"xsd:dateTime"
+   },
+   "status":"et:status",
+   "studentId":"et:studentId",
+   "term":"ltiv:CourseOffering.academicSession",
+   "url":{
+      "@id":"schema:url",
+      "@type":"@id"
+   },
+
+  "TranscriptEntityLink":"et:TranscriptEntityLink",
+  "entityId": {"@id":"et:entityId","@type":"@id"},
+  "entityType": "et:entityType",
+  "transcriptEntities":"et:transcriptEntities",
+  "TranscriptEntitySet": {
+    "@id":"et:TranscriptEntitySet",
+    "@container":"@set"
+  },
+  "assessments": {"@id":"et:assessments", "@container":"@set" },
+  "certificates": {"@id":"et:certificates", "@container":"@set" },
+  "coCurriculars": {"@id":"et:coCurriculars", "@container":"@set" },
+  "competencies": {"@id":"et:competencies", "@container":"@set" },
+  "courses": {"@id":"et:courses", "@container":"@set" },
+  "degrees": {"@id":"et:degrees", "@container":"@set" },
+  "basicEntities": { "@id": "et:basicEntities", "@container":"@set" },
+
+  "Association": "et:Association",
+  "associationType": "et:associationType",
+
+  "associations": {"@id": "et:associations", "@container":"@list", "@type": "et:Association" }
+
+}

@@ -7,7 +7,7 @@
     "identity": "mwilliams@example.org",
     "hashed": false
   },
-  "issuedOn": "2017-10-05T00:00:00+00:00",
+  "issuedOn": "2017-10-05T00:00:0000Z",
   "verification": {
     "type": "hosted"
   },
@@ -33,7 +33,7 @@
     "@context": "http://et.bryanesmith.com/extended-transcript-extension/v1p0/context.json",
     "id": "urn:uuid:DEAA611F-F02B-499A-86A0-F4C91ACB37DB",
     "type": [ "Extension", "ExtendedTranscript" ],
-    "createdAt": "2017-10-05T00:00:00+00:00",
+    "createdAt": "2017-10-05T00:00:0000Z",
     "overviewUrl": "http://example.org/cbu/transcript/about",
     "issuer": {
       "id": "urn:uuid:BB4B9F52-EBAC-4291-8F6B-B057B3C55B91",
