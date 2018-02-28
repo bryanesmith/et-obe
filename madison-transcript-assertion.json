@@ -1,6 +1,6 @@
 {
   "@context": "https://w3id.org/openbadges/v2",
-  "id": "https://et.bryanesmith.com/madison-transcript-assertion.json",
+  "id": "http://et.bryanesmith.com/madison-transcript-assertion.json",
   "type": "Assertion",
   "recipient": {
     "@id": "urn:uuid:9f3fec4e-c856-4d06-88d1-3da943bc653a",
@@ -30,7 +30,7 @@
     }
   },
   "extensions:ExtendedTranscript": {
-    "@context": "https://et.bryanesmith.com/extended-transcript-extension/v1p0/context.json",
+    "@context": "http://et.bryanesmith.com/extended-transcript-extension/v1p0/context.json",
     "id": "urn:uuid:DEAA611F-F02B-499A-86A0-F4C91ACB37DB",
     "type": ["Extension", "ExtendedTranscript"],
     "createdAt": "2017-04-25T00:00:0000Z",
