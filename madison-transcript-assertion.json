@@ -30,7 +30,7 @@
     }
   },
   "extensions:ExtendedTranscript": {
-    "@context": "https://transcript.bryanesmith.com/extended-transcript-extension/v1p0/context.json",
+    "@context": "https://et.bryanesmith.com/extended-transcript-extension/v1p0/context.json",
     "id": "urn:uuid:DEAA611F-F02B-499A-86A0-F4C91ACB37DB",
     "type": ["Extension", "ExtendedTranscript"],
     "createdAt": "2017-04-25T00:00:0000Z",
