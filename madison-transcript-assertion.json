@@ -1,6 +1,6 @@
 {
   "@context": "https://w3id.org/openbadges/v2",
-  "id": "https://transcript.bryanesmith.com/madison-transcript-assertion.json",
+  "id": "https://et.bryanesmith.com/madison-transcript-assertion.json",
   "type": "Assertion",
   "recipient": {
     "@id": "urn:uuid:9f3fec4e-c856-4d06-88d1-3da943bc653a",
