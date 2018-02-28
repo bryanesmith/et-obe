@@ -2,7 +2,7 @@
   "@context": "http://et.bryanesmith.com/extended-transcript/v1p0/context.json",
   "obi:validation": [
     {
-      "obi:validatesType": "extensions/ExtendedTranscript",
+      "obi:validatesType": "ExtendedTranscript",
       "obi:validationSchema": "http://et.bryanesmith.com/extended-transcript/v1p0/schema.json"
     }
   ]

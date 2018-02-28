@@ -1,0 +1,10 @@
+{
+  "id": "http://et.bryanesmith.com/cbu.json",
+  "type": "Profile",
+  "name": "Competency-Based University",
+  "url": "http://example.org/cbu",
+  "email": "contact@example.org",
+  "verification": {
+    "allowedOrigins": "example.org"
+  }
+}
