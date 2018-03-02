@@ -2,7 +2,7 @@
   "@context": {
      "id":"@id",
      "type":"@type",
-     "badgeExtensions":"https://w3id.org/openbadges/extensions#",
+     "extensions":"https://w3id.org/openbadges/extensions#",
      "ctdl":"http://www.credreg.net/ctdl/terms#",
      "et":"http://purl.imsglobal.org/extended-transcript/",
      "ltiv":"http://purl.imsglobal.org/vocab/lti/v2/variable#",
@@ -24,7 +24,7 @@
      "Evidence":"et:Evidence",
      "address":"schema:address",
      "areaOfStudy":"et:areaOfStudy",
-     "assessmentEvaluation":"badgeExtensions:assessmentEvaluation",
+     "assessmentEvaluation":"extensions:assessmentEvaluation",
      "assessmentMethod":"ctdl:assessmentMethodType",
      "assessmentOutput":"ctdl:assessmentOutput",
      "assessor":"et:assessor",
@@ -138,6 +138,7 @@
     "associationType": "et:associationType",
 
     "associations": {"@id": "et:associations", "@container":"@list", "@type": "et:Association" }
+
   },
   "obi:validation": [
     {
